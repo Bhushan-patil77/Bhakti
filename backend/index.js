@@ -11,7 +11,7 @@ import { io, server, app } from "./lib/socket.js";
 dotenv.config()
 
 app.use(cors({ 
-  origin: process.env.FRONTEND_URL,
+  origin: 'https://bhakti-frontend.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true,
 })); 
