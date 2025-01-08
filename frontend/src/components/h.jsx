@@ -29,7 +29,8 @@ function Home() {
   const scrollSpan2 = document.getElementById('scrollSpan2');
   const imageInputRef = useRef(null)
   const textInputRef = useRef(null)
-  const msgWindow = useRef(null)
+  const msgWindow1 = useRef(null)
+  const msgWindow2 = useRef(null)
 
   useEffect(() => {
     if (textInputRef.current) {
@@ -38,21 +39,22 @@ function Home() {
   }, [uploadedUrls, loading, error, numberOfFileSelected])
 
   useEffect(() => {                                                                          //scrolling messages to end when messages object
-    // if (scrollSpan1) {
-    //   scrollSpan1.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    // }
 
-    // if (scrollSpan2) {
-    //   scrollSpan2.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    // }
-
-    if(msgWindow.current)
+    if(msgWindow1.current)
     {
-      msgWindow.current.scrollTo({
-        top: msgWindow.current.scrollHeight,
+      msgWindow1.current.scrollTo({
+        top: msgWindow1.current.scrollHeight,
         behavior: 'smooth', // This enables smooth scrolling
       });
     }
+
+    if(msgWindow2.current)
+      {
+        msgWindow2.current.scrollTo({
+          top: msgWindow2.current.scrollHeight,
+          behavior: 'smooth', // This enables smooth scrolling
+        });
+      }
   }, [messages])
 
   useEffect(() => {                                                                          // observing all unSeen messages elements to deliver seen report
@@ -133,7 +135,7 @@ function Home() {
   return (
     <div className="MAIN  h-full w-full flex bg-slate-500 ">
 
-      <div className='hidden xl:flex'>
+      <div className='hidden xl:flex w-full'>
 
         <Sidebar />
 
@@ -142,7 +144,7 @@ function Home() {
 
             ?
 
-            <div className="CHAT-WINDOW w-[70%] h-full  flex flex-col">
+            <div className="CHAT-WINDOW w-[70%] h-full  flex flex-col ">
 
               {
                 selectedUser && <div className="CHAT-HEADER flex items-center justify-between p-4 border-b border-gray-700 bg-gray-800">
@@ -162,7 +164,7 @@ function Home() {
               }
 
               {
-                selectedUser && <div className="MESSAGES h-[600px] overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
+                selectedUser && <div ref={msgWindow2} className="MESSAGES h-[600px] overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
 
                   {
 
@@ -316,7 +318,7 @@ function Home() {
               }
 
               {
-                selectedUser && <div ref={msgWindow} className="MESSAGES h-[600px] overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
+                selectedUser && <div ref={msgWindow1} className="MESSAGES h-[600px] overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
 
                   {
 
