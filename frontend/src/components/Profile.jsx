@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiLoader } from "react-icons/fi";
+import { TiArrowLeft } from "react-icons/ti";
 import useAuthStore from '../store/useAuthStore';
 import defaultProfileImage from '../assets/defaultProfileImage.png'
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +31,8 @@ const Profile = () => {
 
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
-      <div className="flex flex-col justify-center items-center w-[500px] h-[500px] p-6 bg-white rounded-lg  shadow-2xl">
+      <TiArrowLeft className='absolute top-2 left-2 text-3xl cursor-pointer' onClick={()=>{navigate('/')}}/>
+      <div className="flex flex-col justify-center items-center xl:w-[500px] xl:h-[500px] h-full w-full p-6 bg-white rounded-lg  shadow-2xl">
         {/* Profile Header */}
         <div className="text-center mb-6  ">
 

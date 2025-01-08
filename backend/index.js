@@ -7,11 +7,11 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { io, server, app } from "./lib/socket.js";
 
-
-dotenv.config()
+ 
+dotenv.config()  
 
 app.use(cors({ 
-  origin: 'https://bhakti-frontend.vercel.app',
+  origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true,
 })); 

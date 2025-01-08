@@ -212,6 +212,7 @@ const useMessageStore = create((set, get) => {
       }
     },
 
+
     getUser: (_id) =>{
       return new Promise((resolve, reject)=>{
 
