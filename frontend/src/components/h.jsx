@@ -300,7 +300,7 @@ function Home() {
             <div className="CHAT-WINDOW  h-full  flex flex-col ">
                 
               {
-                selectedUser && <div className="CHAT-HEADER  flex items-center justify-between p-4  border-b border-gray-700 bg-gray-800">
+                selectedUser && <div className="CHAT-HEADER absolute w-full z-50 top-0 flex items-center justify-between p-4  border-b border-gray-700 bg-gray-800">
                   <div className="flex gap-1 items-center">
                   <TiArrowLeft className='text-white text-3xl cursor-pointer' onClick={()=>{setSelectedUser(null)}}/>
                     <img
@@ -399,7 +399,7 @@ function Home() {
               }
 
               {
-                selectedUser && <div className="INPUT-SECTION border-t border-gray-700 p-4 bg-gray-800">
+                selectedUser && <div className="INPUT-SECTION absolute bottom-0 w-full border-t border-gray-700 p-4 bg-gray-800">
                   <div className="flex">
                     <input
                       ref={textInputRef}
