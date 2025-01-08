@@ -297,10 +297,10 @@ function Home() {
 
             ?
 
-            <div className="CHAT-WINDOW  h-full  flex flex-col">
+            <div className="CHAT-WINDOW  h-full  flex flex-col ">
                 
               {
-                selectedUser && <div className="CHAT-HEADER flex items-center justify-between p-4  border-b border-gray-700 bg-gray-800">
+                selectedUser && <div className="CHAT-HEADER  flex items-center justify-between p-4  border-b border-gray-700 bg-gray-800">
                   <div className="flex gap-1 items-center">
                   <TiArrowLeft className='text-white text-3xl cursor-pointer' onClick={()=>{setSelectedUser(null)}}/>
                     <img
@@ -318,7 +318,7 @@ function Home() {
               }
 
               {
-                selectedUser && <div ref={msgWindow1} className="MESSAGES h-[600px] overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
+                selectedUser && <div ref={msgWindow1} className="MESSAGES overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
 
                   {
 

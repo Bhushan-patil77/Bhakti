@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useCloudinaryStore from '../store/useCloudinaryStore'
 import useAuthStore from '../store/useAuthStore'
 import useMessageStore from '../store/useMessageStore'
 
 function Sidebar() {
     const [email, setEmail] = useState('')
+    const navigate = useNavigate(null)
     
 
     const { uploadImages, uploadedUrls, setUploadedUrls, loading, error, numberOfFileSelected } = useCloudinaryStore()
