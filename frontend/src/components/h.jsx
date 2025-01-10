@@ -40,21 +40,19 @@ function Home() {
 
   useEffect(() => {                                                                          //scrolling messages to end when messages object
 
-    if(msgWindow1.current)
-    {
+    if (msgWindow1.current) {
       msgWindow1.current.scrollTo({
         top: msgWindow1.current.scrollHeight,
         behavior: 'smooth', // This enables smooth scrolling
       });
     }
 
-    if(msgWindow2.current)
-      {
-        msgWindow2.current.scrollTo({
-          top: msgWindow2.current.scrollHeight,
-          behavior: 'smooth', // This enables smooth scrolling
-        });
-      }
+    if (msgWindow2.current) {
+      msgWindow2.current.scrollTo({
+        top: msgWindow2.current.scrollHeight,
+        behavior: 'smooth', // This enables smooth scrolling
+      });
+    }
   }, [messages])
 
   useEffect(() => {                                                                          // observing all unSeen messages elements to deliver seen report
@@ -288,21 +286,20 @@ function Home() {
       </div>
 
 
-      <div className='xl:hidden w-full'>
-
-        
+      <div className=' xl:hidden w-full'>
 
         {
+
           selectedUser
 
             ?
 
-            <div className="CHAT-WINDOW  h-full  flex flex-col ">
-                
+            <div className="CHAT-WINDOW h-full  flex flex-col ">
+
               {
                 selectedUser && <div className="CHAT-HEADER h-[20%] flex items-center justify-between p-4  border-b border-gray-700 bg-gray-800">
                   <div className="flex gap-1 items-center">
-                  <TiArrowLeft className='text-white text-3xl cursor-pointer' onClick={()=>{setSelectedUser(null)}}/>
+                    <TiArrowLeft className='text-white text-3xl cursor-pointer' onClick={() => { setSelectedUser(null) }} />
                     <img
                       src={selectedUser.profileImage !== '' ? selectedUser.profileImage : "https://via.placeholder.com/40"}
                       alt="Chat Profile"
@@ -318,7 +315,7 @@ function Home() {
               }
 
               {
-                selectedUser && <div ref={msgWindow1} className="MESSAGES flex-grow overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
+                selectedUser && <div ref={msgWindow1} className="MESSAGES  overflow-y-auto no-scrollbar px-4 pt-4 bg-gray-900">
 
                   {
 
@@ -402,6 +399,7 @@ function Home() {
                 selectedUser && <div className="INPUT-SECTION h-[20%] border-t border-gray-700 p-4 bg-gray-800">
                   <div className="flex">
                     <input
+
                       ref={textInputRef}
                       type="text"
                       className="flex-1  border-gray-600 rounded-l-lg p-2 bg-gray-700 text-gray-100 placeholder-gray-400 focus:outline-none"
@@ -416,22 +414,19 @@ function Home() {
                           setMessage('');
                           setPreviewImages([]);
                           imageInputRef.current.value = '';
-                         
+
                         }
                       }}
-
-                     
-
 
                     />
 
                     {/* <input ref={imageInputRef} id='imageInput' className='hidden' type="file" accept='image/*' onChange={(e)=>{convertImagesToBase64Urls(e); setPreviewImages(Array.from(e.target.files))}} multiple /> */}
                     <input ref={imageInputRef} id='imageInput' className='hidden' type="file" accept='image/*' onChange={(e) => { uploadImages(e.target.files) }} multiple />
                     <label htmlFor="imageInput" className=' flex justify-center items-center  p-1 bg-gray-700 cursor-pointer'><MdAttachment className='w-[30px] h-[20px] text-white' /></label>
-                    <button disabled={loading} className={` text-white p-2 rounded-r-lg hover:bg-blue-600 ${loading ? 'cursor-not-allowed disabled bg-slate-400' : 'bg-blue-500'}`} onClick={() => { sendMessageWithUploadedImages(loggedInUser._id, selectedUser._id, message, uploadedUrls); setMessage(''); setPreviewImages([]); imageInputRef.current.value = ''; }}>Send</button>
+                    <button disabled={loading} className={` text-white p-2 rounded-r-lg hover:bg-blue-600 ${loading ? 'cursor-not-allowed disabled bg-slate-400' : 'bg-blue-500'}`} onClick={() => {sendMessageWithUploadedImages(loggedInUser._id, selectedUser._id, message, uploadedUrls); setMessage(''); setPreviewImages([]); imageInputRef.current.value = '' }}>Send</button>
                     {/* <button disabled={loading} className={` text-white p-2 rounded-r-lg hover:bg-blue-600 ${loading ? 'cursor-not-allowed disabled bg-slate-400' : 'bg-blue-500'}`} onClick={() => {  sendMessage(loggedInUser._id, selectedUser._id, message, base64Images); setMessage(''); setPreviewImages([]); imageInputRef.current.value = ''; }}>Send</button> */}
 
-                    
+
                   </div>
                 </div>
               }
@@ -440,7 +435,8 @@ function Home() {
 
             :
 
-            <Sidebar />
+          <Sidebar />
+
         }
 
       </div>

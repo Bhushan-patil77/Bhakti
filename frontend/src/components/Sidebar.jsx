@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import useCloudinaryStore from '../store/useCloudinaryStore'
 import useAuthStore from '../store/useAuthStore'
@@ -13,7 +13,9 @@ function Sidebar() {
     const { logout, check, loggedInUser, onlineUsers, socket } = useAuthStore()
     const { sendMessage, sendMessageWithUploadedImages, getMessages, convertImagesToBase64Urls, isImagesConverting, base64Images, emitTyping, emitNotTyping, usersTyping, messages, searchUsers, users, setUsers, setSelectedUser, selectedUser, getSelectedUser, listenToMessages, dontListenToMessages, recentChats, emitSeen } = useMessageStore()
 
-
+   useEffect(()=>{
+    console.log(recentChats)
+   },[recentChats])
     return (
 
         <div className="SIDEBAR flex flex-col xl:w-[30%] w-full h-full border-r border-gray-700 bg-gray-800">
@@ -50,7 +52,7 @@ function Sidebar() {
             </div>
 
 
-            <div className="RECENT-CHATS   overflow-y-auto no-scrollbar ">
+            <div className="RECENT-CHATS overflow-y-auto no-scrollbar">
 
                 {
                     recentChats && recentChats.length > 0 && recentChats.map((chat, index) => {
@@ -78,6 +80,8 @@ function Sidebar() {
             </div>
 
         </div>
+
+      
     )
 }
 
